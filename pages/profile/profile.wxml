@@ -1,0 +1,9 @@
+<!--pages/profile/profile.wxml-->
+<view class="container">
+    <view class="user">
+        <image class="user-avatar" src="{{ userInfo.avatarUrl }}"></image>
+        <text class="user-nickname">{{ userInfo.nickName }}</text>
+        <text hidden="{{ !userInfo.city }}">{{ userInfo.city }}, {{ userInfo.province }}</text>
+    </view>
+    <view bindtap='clickme'>点击我</view>
+</view>

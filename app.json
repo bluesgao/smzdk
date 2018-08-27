@@ -1,0 +1,39 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/detail/detail",
+        "pages/profile/profile"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#40586d",
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "什么值得看",
+        "backgroundColor": "#f8f9fb",
+        "backgroundTextStyle": "dark",
+        "enablePullDownRefresh": false
+    },
+    "tabBar": {
+        "color": "#787878",
+        "selectedColor": "#000000",
+        "borderStyle": "white",
+        "list": [
+            {
+                "text": "首页",
+                "pagePath": "pages/index/index",
+                "iconPath": "images/home.png",
+                "selectedIconPath": "images/home-actived.png"
+            },
+            {
+                "text": "我的",
+                "pagePath": "pages/profile/profile",
+                "iconPath": "images/profile.png",
+                "selectedIconPath": "images/profile-actived.png"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 10000,
+        "downloadFile": 10000
+    },
+    "debug": true
+}

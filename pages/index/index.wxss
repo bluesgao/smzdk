@@ -1,0 +1,9 @@
+/**index.wxss**/
+
+.clearfix:before, .clearfix:after {
+    content: "";
+}
+
+.card-demo image {
+    border-radius: 50%;
+}
