@@ -4,13 +4,13 @@ Component({
     relations: {
         '../tab/index': {
             type: 'child',
-            linked () {
+            linked() {
                 this.changeCurrent();
             },
-            linkChanged () {
+            linkChanged() {
                 this.changeCurrent();
             },
-            unlinked () {
+            unlinked() {
                 this.changeCurrent();
             }
         }
@@ -37,7 +37,7 @@ Component({
     },
 
     methods: {
-        changeCurrent (val = this.data.current) {
+        changeCurrent(val = this.data.current) {
             let items = this.getRelationNodes('../tab/index');
             const len = items.length;
 
@@ -49,8 +49,10 @@ Component({
                 });
             }
         },
-        emitEvent (key) {
-            this.triggerEvent('change', { key });
+        emitEvent(key) {
+            this.triggerEvent('change', {
+                key
+            });
         }
     }
 });

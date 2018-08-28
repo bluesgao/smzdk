@@ -5,9 +5,11 @@ const app = getApp()
 
 Page({
     data: {
+        top: 0,
         slider: [],
         swiperCurrent: 0,
-        tabCurrent: 'hot'
+        tabCurrent: 'hot',
+        hotCount: 1
     },
     //事件处理函数
     bindViewTap: function() {
@@ -52,6 +54,49 @@ Page({
         });
 
     },
+    //控制回到顶部按钮的显示与消失
+    scrollTopFun(e) {
+        let that = this;
+        that.top = e.detail.scrollTop;
+        that.$apply();
+    },
+    onPullDownRefresh: function() {
+        console.log(" onPullDownRefresh");
+        wx.showNavigationBarLoading(); //在标题栏中显示加载
+    },
+    onReachBottom: function() {
+        // 当界面的下方距离页面底部距离小于100像素时触发回调
+        console.log(" onReachBottom");
+        // 显示加载图标
+        wx.showLoading({
+            title: '玩命加载中',
+        })
+        // 页数+1
+        page = page + 1;
+        wx.request({
+            url: 'https://xxx/?page=' + page,
+            method: "GET",
+            // 请求头部
+            header: {
+                'content-type': 'application/text'
+            },
+            success: function(res) {
+                // 回调函数
+                var moment_list = that.data.moment;
+
+                for (var i = 0; i < res.data.data.length; i++) {
+                    moment_list.push(res.data.data[i]);
+                }
+                // 设置数据
+                that.setData({
+                    moment: that.data.moment
+                })
+                // 隐藏加载框
+                wx.hideLoading();
+            }
+        })
+
+    },
     //轮播图的切换事件
     swiperChange: function(e) {
         //只要把切换后当前的index传给<swiper>组件的current属性即可
@@ -65,9 +110,11 @@ Page({
             swiperCurrent: e.currentTarget.id
         })
     },
-    
+
     //tab切换事件
-    handleChange({detail}) {
+    handleChange({
+        detail
+    }) {
         this.setData({
             tabCurrent: detail.key
         });

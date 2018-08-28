@@ -1,4 +1,3 @@
-/* pages/profile/profile.wxss */
 .user {
   display: flex;
   flex-direction: column;

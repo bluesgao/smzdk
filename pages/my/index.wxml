@@ -1,4 +1,3 @@
-<!--pages/profile/profile.wxml-->
 <view class="container">
     <view class="user">
         <image class="user-avatar" src="{{ userInfo.avatarUrl }}"></image>

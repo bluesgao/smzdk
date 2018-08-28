@@ -1,7 +1,13 @@
 /**index.wxss**/
 
 /* 轮播样式 */
-
+.topnav{
+    position: fixed;
+    top: 85rpx;
+    z-index:99;
+    background: #fff;
+    width: 100%;
+}
 .swiper-container {
     position: relative;
 }
