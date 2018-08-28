@@ -1,8 +1,10 @@
 {
     "pages": [
-        "pages/classic/index",
+        "pages/home/index",
+        "pages/movie-list/index",
         "pages/my/index",
-        "pages/hot/index"
+        "pages/hot/index",
+        "pages/movie-detail/index"
     ],
     "window": {
         "navigationBarBackgroundColor": "#40586d",

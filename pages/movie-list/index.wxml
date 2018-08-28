@@ -1,15 +1,15 @@
-<!--列表页-->
-<view class='container'>
+<view class='page-container'>
     <!--等待框-->
     <loading hidden="{{!loading}}">加载中...</loading>
-    <!--顶部标题栏-->
+
+    <!--页面头-->
     <view class='page-header'>
-        <text class='page-title'>{{title}}</text>
     </view>
-    <!--列表-->
+
+    <!--页面体-->
     <view class='page-body'>
-        <view class="list" >
-            <navigator url='../item/item?id={{ item.id }}' wx:for="{{list}}" wx:key="id">
+        <view class="page-list">
+            <navigator url='../movie-detail/index?id={{ item.id }}' wx:for="{{list}}" wx:key="id">
                 <view class='item'>
                     <image class='poster' src='{{item.images.small}}'></image>
                     <view class='meta'>
@@ -27,4 +27,7 @@
             </navigator>
         </view>
     </view>
+
+    <!--页面尾-->
+    <view class='page-footer'></view>
 </view>

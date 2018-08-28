@@ -1,8 +1,8 @@
 <!--index.wxml-->
-<scroll-view scroll-y="true" bindscroll="scrollTopFun">
-    <view class='tabs-container' class="{{top>130 ? 'topnav' : ''}}">
-        <i-panel>
-            <!-- 标签页 -->
+<view class="page-container">
+    <view class="page-header">
+        <view class='top-tabs'>
+            <!-- 顶部标签页 -->
             <i-tabs current="{{ tabCurrent}}" bindchange="handleChange">
                 <i-tab key="hot" title="热门" count="{{hotCount}}"></i-tab>
                 <i-tab key="classic" title="经典"></i-tab>
@@ -11,30 +11,28 @@
                 <i-tab key="japanAndKorea" title="日韩"></i-tab>
                 <i-tab key="other" title="其他"></i-tab>
             </i-tabs>
-        </i-panel>
+        </view>
     </view>
 
-    <view class='main-container'>
-        <i-panel>
-            <!--轮播 start-->
-            <view class="carousel">
-                <view class="swiper-container">
-                    <swiper autoplay="auto" interval="5000" duration="500" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper">
-                        <block wx:for="{{slider}}" wx:key="unique">
-                            <swiper-item data-id="{{item.id}}" data-url="{{item.linkUrl}}">
-                                <image src="{{item.picUrl}}" class="img"></image>
-                            </swiper-item>
-                        </block>
-                    </swiper>
-                    <view class="dots">
-                        <block wx:for="{{slider}}" wx:key="unique">
-                            <view class="dot{{index == swiperCurrent ? ' active' : ''}}" bindtap="chuangEvent" id="{{index}}">{{index+1}}</view>
-                        </block>
-                    </view>
+    <view class='page-body'>
+        <!--轮播 start-->
+        <view class="carousel">
+            <view class="swiper-container">
+                <swiper autoplay="auto" interval="5000" duration="500" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper">
+                    <block wx:for="{{slider}}" wx:key="unique">
+                        <swiper-item data-id="{{item.id}}" data-url="{{item.linkUrl}}">
+                            <image src="{{item.picUrl}}" class="img"></image>
+                        </swiper-item>
+                    </block>
+                </swiper>
+                <view class="dots">
+                    <block wx:for="{{slider}}" wx:key="unique">
+                        <view class="dot{{index == swiperCurrent ? ' active' : ''}}" bindtap="chuangEvent" id="{{index}}">{{index+1}}</view>
+                    </block>
                 </view>
             </view>
-            <!--轮播 end-->
-        </i-panel>
+        </view>
+        <!--轮播 end-->
         <i-panel title="热门推荐">
             <i-cell-group>
                 <i-cell>
@@ -46,4 +44,4 @@
             </i-cell-group>
         </i-panel>
     </view>
-</scroll-view>
+</view>

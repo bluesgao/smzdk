@@ -4,7 +4,10 @@ Page({
      * 页面的初始数据
      */
     data: {
-        title: '加载中...', // 状态
+        tabCurrent: 'hot',
+        hotCount: 1,
+
+        title: '', //标题
         list: [], // 数据列表
         movieType: '', // 数据类型
         loading: true // 显示等待框
@@ -14,6 +17,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function() {
+        console.log("onLoad");
         const _this = this;
         // 拼接请求url
 
@@ -34,7 +38,12 @@ Page({
                     list: res.data.subjects,
                     //type: options.type,
                     loading: false // 关闭等待框
-                })
+                });
+                
+                //修改导航栏标题
+                wx.setNavigationBarTitle({
+                    title: res.data.title
+                });
             }
         })
     },
@@ -43,10 +52,7 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function() {
-        // 修改导航栏标题
-        wx.setNavigationBarTitle({
-            title: this.data.title + '<< 电影 << 豆瓣'
-        })
+        console.log("onReady");
     },
 
     /**
@@ -89,5 +95,11 @@ Page({
      */
     onShareAppMessage: function() {
 
-    }
+    },
+    //tab切换事件
+    handleChange({ detail}) {
+        this.setData({
+            tabCurrent: detail.key
+        });
+    },
 })

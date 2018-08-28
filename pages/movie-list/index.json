@@ -1,0 +1,16 @@
+{
+    "usingComponents": {
+        "i-card": "../components/card/index",
+        "i-panel": "../components/panel/index",
+        "i-tab-bar": "../components/tab-bar/index",
+        "i-tab-bar-item": "../components/tab-bar-item/index",
+        "i-tabs": "../components/tabs/index",
+        "i-tab": "../components/tab/index",
+        "i-cell-group": "../components/cell-group/index",
+        "i-cell": "../components/cell/index",
+        "i-grid": "../components/grid/index",
+        "i-grid-item": "../components/grid-item/index",
+        "i-grid-icon": "../components/grid-icon/index",
+        "i-grid-label": "../components/grid-label/index"
+    }
+}
