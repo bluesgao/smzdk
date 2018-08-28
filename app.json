@@ -4,7 +4,9 @@
         "pages/movie-list/index",
         "pages/my/index",
         "pages/hot/index",
-        "pages/movie-detail/index"
+        "pages/movie-detail/index",
+        "pages/templates/list/index",
+        "pages/templates/list-item/index"
     ],
     "window": {
         "navigationBarBackgroundColor": "#40586d",
