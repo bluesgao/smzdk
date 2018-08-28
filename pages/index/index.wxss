@@ -1,9 +1,48 @@
 /**index.wxss**/
 
-.clearfix:before, .clearfix:after {
-    content: "";
+/* 轮播样式 */
+
+.swiper-container {
+    position: relative;
 }
 
-.card-demo image {
+.swiper-container .swiper {
+    height: 300rpx;
+}
+
+.swiper-container .swiper .img {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-container .dots {
+    position: absolute;
+    right: 40rpx;
+    bottom: 20rpx;
+    display: flex;
+    justify-content: center;
+}
+
+.swiper-container .dots .dot {
+    margin: 0 10rpx;
+    width: 28rpx;
+    height: 28rpx;
+    background: #fff;
     border-radius: 50%;
+    transition: all 0.6s;
+    font: 300 18rpx/28rpx "microsoft yahei";
+    text-align: center;
+}
+
+.swiper-container .dots .dot.active {
+    background: #f80;
+    color: #fff;
+}
+
+/* 热门推荐样式 */
+
+.hot-recommend .item-title .img {
+    position: relative;
+    height: 70rpx;
+    margin-bottom: 20rpx;
 }

@@ -1,9 +1,60 @@
 <!--index.wxml-->
-<view class="container">
-    <view class="movie-cards" wx:for="{{movies}}" wx:for-item="movie">
-        <i-card title="卡片标题" extra="额外内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-            <view slot="content">内容不错</view>
-            <view slot="footer">尾部内容</view>
-        </i-card>
-    </view>
+<view>
+    <i-panel>
+        <!-- 标签页 -->
+        <i-tabs current="{{ tabCurrent}}" bindchange="handleChange">
+            <i-tab key="hot" title="热门"></i-tab>
+            <i-tab key="classic" title="经典"></i-tab>
+            <i-tab key="europeAndAmerica" title="欧美"></i-tab>
+            <i-tab key="china" title="国内"></i-tab>
+            <i-tab key="japanAndKorea" title="日韩"></i-tab>
+            <i-tab key="other" title="其他"></i-tab>
+        </i-tabs>
+    </i-panel>
+    <i-panel>
+        <!--轮播 start-->
+        <view class="carousel">
+            <view class="swiper-container">
+                <swiper autoplay="auto" interval="5000" duration="500" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper">
+                    <block wx:for="{{slider}}" wx:key="unique">
+                        <swiper-item data-id="{{item.id}}" data-url="{{item.linkUrl}}">
+                            <image src="{{item.picUrl}}" class="img"></image>
+                        </swiper-item>
+                    </block>
+                </swiper>
+                <view class="dots">
+                    <block wx:for="{{slider}}" wx:key="unique">
+                        <view class="dot{{index == swiperCurrent ? ' active' : ''}}" bindtap="chuangEvent" id="{{index}}">{{index+1}}</view>
+                    </block>
+                </view>
+            </view>
+        </view>
+        <!--轮播 end-->
+    </i-panel>
+    <i-panel title="热门推荐">
+        <i-cell-group>
+            <i-cell>
+                <i-card title="卡片标题" extra="额外内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+                    <view slot="content">内容不错</view>
+                    <view slot="footer">尾部内容</view>
+                </i-card>
+            </i-cell>
+            <i-cell>
+                <i-grid>
+                    <i-grid-item>
+                        <i-card title="卡片标题1" extra="额外内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+                            <view slot="content">内容不错</view>
+                            <view slot="footer">尾部内容</view>
+                        </i-card>
+                    </i-grid-item>
+                    <i-grid-item>
+                        <i-card title="卡片标题2" extra="额外内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
+                            <view slot="content">内容不错</view>
+                            <view slot="footer">尾部内容</view>
+                        </i-card>
+                    </i-grid-item>
+                </i-grid>
+            </i-cell>
+        </i-cell-group>
+    </i-panel>
 </view>
